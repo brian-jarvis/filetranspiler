@@ -61,8 +61,8 @@ def merge_with_ignition(ignition_cfg, files):
         # check if file already in ignition storage
         existing_file_idx = [i for i, j in enumerate(ignition_cfg['storage']['files']) if j['path'] == a_file['path']]
         if len(existing_file_idx) > 0:
-            # replace the contents if it already exists
-            ignition_cfg['storage']['files'][existing_file_idx[0]] = a_file
+            # replace the contents of the last index if it already exists
+            ignition_cfg['storage']['files'][existing_file_idx[-1]] = a_file
         else:
             ignition_cfg['storage']['files'].append(a_file)
     return ignition_cfg
